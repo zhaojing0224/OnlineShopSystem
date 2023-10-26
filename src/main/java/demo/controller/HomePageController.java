@@ -17,4 +17,12 @@ public class HomePageController {
 
 		return "homePage";
 	}
+	
+	@GetMapping("/collectionsPage")
+	public String collectionPage(Model model) {
+
+		model.addAttribute("collectionsPage", "collectionPage");
+
+		return "collectionsPage";
+	}
 }
