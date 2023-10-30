@@ -1,5 +1,6 @@
 package demo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import demo.model.ProductInfo;
+import demo.obj.ProductInfoObj;
 import demo.repository.ProductInfoRepository;
 
 @Service
@@ -14,11 +16,6 @@ public class ProductInfoService {
 
 	@Autowired
 	ProductInfoRepository productInfoRepositroy;
-
-	@Autowired
-	public ProductInfoService(ProductInfoRepository productInfoRepository) {
-		this.productInfoRepositroy = productInfoRepository;
-	}
 
 	/**
 	 * 商品情報を更新する
@@ -33,8 +30,26 @@ public class ProductInfoService {
 	 * 商品情報を全件取得する
 	 * @return productInfoリスト
 	 */
-	public List<ProductInfo> findAllProductInfo() {
-		return productInfoRepositroy.findAll();
+	public List<ProductInfoObj> findAllProductInfo() {
+		
+		List<ProductInfoObj> productInfoObjList = new ArrayList<ProductInfoObj>();
+		List<ProductInfo> productInfoList = productInfoRepositroy.findAll();
+		
+		for(ProductInfo p : productInfoList ) {
+			
+			ProductInfoObj obj = new ProductInfoObj();
+			obj.setProductId(p.getProductId());
+			obj.setProductName(p.getProductName());
+			obj.setProductPrice(p.getProductPrice());
+			obj.setProductImg(p.getProductImg());
+			obj.setProductCategory(p.getProductCategory());
+			obj.setProductImg(p.getProductContents());
+			obj.setStock(p.getStock());
+			
+			productInfoObjList.add(obj);
+		}
+		
+		return productInfoObjList;
 	}
 
 	/**

@@ -3727,3 +3727,129 @@ div {
 	}
 }
 
+
+
+
+/*  myPage页面 */
+.bnr_kuji {
+	text-align: center;
+	margin-top: 40px;
+	padding: 0 2% 0 4%;
+}
+
+.bnr_kuji img {
+	width: 100%;
+	max-width: 640px;
+}
+
+@media screen and (max-width: 767px) {
+	.bnr_kuji {
+		margin-top: 20px;
+		padding: 0 1% 0 3%;
+	}
+}
+
+.custom-div {
+	margin-top: 50px;
+}
+
+
+.accont_info h3,
+.account_orders h3 {
+	font-family: "M PLUS Rounded 1c" !important;
+	margin: 0 0 20px;
+	padding: 10px 0 5px;
+	border-bottom: 1px solid #777;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 1.2;
+}
+
+@media only screen and (max-width: 767px) {
+
+	[data-item~=block-heading],
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-size: 18px;
+	}
+
+	[data-item~=block-heading],
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font--heading--family);
+		font-weight: var(--font--heading--weight);
+		font-style: var(--font--heading--style);
+		text-transform: var(--font--heading--uppercase);
+		font-weight: var(--font--heading--normal-weight);
+		font-size: var(--font--block-heading--size);
+		line-height: 1.33333em;
+		margin: -0.25em 0;
+		letter-spacing: .025em;
+	}
+
+	*,
+	:after,
+	:before {
+		box-sizing: border-box;
+	}
+
+	user agent stylesheet h3 {
+		display: block;
+		font-size: 1.17em;
+		margin-block-start: 1em;
+		margin-block-end: 1em;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+		font-weight: bold;
+	}
+
+	.account_wrapper {
+		width: 92%;
+		max-width: 1000px;
+		margin: 0 auto 50px;
+		padding: 50px 80px;
+		box-sizing: border-box;
+		background: #fff;
+		border-radius: 10px;
+		border: 1px solid #eaeaea;
+		font-family: "M PLUS Rounded 1c" !important;
+	}
+
+	*,
+	:after,
+	:before {
+		box-sizing: border-box;
+	}
+
+	html.js body[data-tabbing=false] [tabindex="0"],
+	html.js body[data-tabbing=false] a,
+	html.js body[data-tabbing=false] button,
+	html.js body[data-tabbing=false] input,
+	html.js body[data-tabbing=false] textarea {
+		outline: 0;
+	}
+
+	a,
+	a:link,
+	a:visited {
+		color: var(--color--body);
+		text-decoration: none;
+		background-color: transparent;
+	}
+
+	*,
+	:after,
+	:before {
+		box-sizing: border-box;
+	}
+
+	user agent stylesheet a:-webkit-any-link {
+		color: -webkit-link;
+		cursor: pointer;
+		text-decoration: underline;
+	}
+}

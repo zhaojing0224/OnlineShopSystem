@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="product_info")
 public class ProductInfo {
 	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)

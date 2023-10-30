@@ -25,4 +25,5 @@ public class HomePageController {
 
 		return "collectionsPage";
 	}
+	
 }

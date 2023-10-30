@@ -3,6 +3,7 @@ package demo.controller;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import demo.model.ProductInfo;
+import demo.obj.ProductInfoObj;
 import demo.service.ProductInfoService;
 
 @Controller
@@ -34,6 +36,11 @@ public class ProductInfoController {
 		return "productRegisterPage";
 	}
 
+	/**
+	 * 商品情報新規登録処理
+	 * @param productListInfo
+	 * @return
+	 */
 	@PostMapping("/productRegisterPage")
 	public String addProductInfo(@RequestParam("productId") Integer productId,
 			@RequestParam("productName") String productName,
@@ -90,7 +97,17 @@ public class ProductInfoController {
 		productInfoService.saveProductInfo(productInfo);
 
 		redirectAttributes.addFlashAttribute("message", "商品が正常に登録されました。");
-		return "redirect:/productListPage";
+		return "redirect:/productListInfoPage";
 
+	}
+	
+	@GetMapping("/productListInfoPage")
+	public String productListInfo(Model model) {
+		
+		model.addAttribute("productListInfoPage", "productListInfoPage");
+		
+		List<ProductInfoObj> productInfoList = productInfoService.findAllProductInfo();
+	    model.addAttribute("productInfoList", productInfoList);
+	    return "productListInfoPage";
 	}
 }
