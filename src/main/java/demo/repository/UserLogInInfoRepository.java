@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import demo.model.UserLogInInfo;
 
 @Repository
-public interface UserLogInRepository extends JpaRepository<UserLogInInfo, String> {
+public interface UserLogInInfoRepository extends JpaRepository<UserLogInInfo, String> {
 
 	UserLogInInfo findByUserIdAndPassword(String userId, String password);
 

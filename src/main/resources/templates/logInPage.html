@@ -190,15 +190,14 @@
 
 								<label for="customer_email" class="label" data-item="accent-text"
 									style="font-family:'M PLUS Rounded 1c';">メールアドレス</label>
-									<br></br>
-								<input class="text" type="email" value="" name="searchId" id="searchId"
-									required="">
-									<br></br>
+								<br></br>
+								<input class="text" type="email" value="" name="searchId" id="searchId" required="">
+								<br></br>
 
 
 								<label for="customer_password" class="label" data-item="accent-text"
 									style="font-family:'M PLUS Rounded 1c';">パスワード</label>
-									<br></br>
+								<br></br>
 								<input class="text" type="password" value="" name="customer[password]"
 									id="customer_password" size="16" required="">
 								<p class="account--forgot-password" data-item="block-link">
@@ -216,14 +215,17 @@
 
 								<div style="border-top:1px dotted #ccc;"></div>
 
-								<div style="width:240px; margin:25px auto 0 auto;;">
-									<a class="account--register" href="/account/register" data-item="secondary-button"
-										style="width:100%; border-radius:30px; margin:0;">
-										<div
-											style="width:100%; border-radius:30px; margin:0; font-weight:500; font-family:'M PLUS Rounded 1c'; color:#2f9ae0; border:2px solid #2f9ae0;">
-											新規会員登録はこちら</div>
-									</a>
-								</div>
+								<form th:action="@{/userRegister}" method="get">
+									<div style="width:240px; margin:25px auto 0 auto;;">
+										<a class="account--register" href="/userRegisterPage"
+											data-item="secondary-button"
+											style="width:100%; border-radius:30px; margin:0;">
+											<div
+												style="width:100%; border-radius:30px; margin:0; font-weight:500; font-family:'M PLUS Rounded 1c'; color:#2f9ae0; border:2px solid #2f9ae0;">
+												新規会員登録はこちら</div>
+										</a>
+									</div>
+								</form>
 
 							</form>
 						</div>
@@ -393,25 +395,25 @@
 
 	</div>
 
-		<div class="modal--prev">
+	<div class="modal--prev">
 
-			<svg class="icon--root icon--chevron-left" viewBox="0 0 12 20">
-				<path d="M2.648 10l8.613-8.614L9.99.114.102 10l9.887 9.886 1.272-1.272z" fill-rule="nonzero"></path>
-			</svg>
-
-
-		</div>
-		<div class="modal--next">
-
-			<svg class="icon--root icon--chevron-right" viewBox="0 0 12 20">
-				<path d="M8.716 10L.102 18.614l1.273 1.272L11.261 10 1.375.114.102 1.386z" fill-rule="nonzero">
-				</path>
-			</svg>
+		<svg class="icon--root icon--chevron-left" viewBox="0 0 12 20">
+			<path d="M2.648 10l8.613-8.614L9.99.114.102 10l9.887 9.886 1.272-1.272z" fill-rule="nonzero"></path>
+		</svg>
 
 
-		</div>
 	</div>
-	
+	<div class="modal--next">
+
+		<svg class="icon--root icon--chevron-right" viewBox="0 0 12 20">
+			<path d="M8.716 10L.102 18.614l1.273 1.272L11.261 10 1.375.114.102 1.386z" fill-rule="nonzero">
+			</path>
+		</svg>
+
+
+	</div>
+	</div>
+
 	<!-- 显示各种反馈消息，用户行为的确认 -->
 	<!-- 提供不同类型的反馈消息，这些消息在特定用户交互或事件发生后可能会显示出来 -->
 	<div class="feedback-bar--root" data-js-class="CoreFeedbackBar" data-open="false" data-critical-css="false"

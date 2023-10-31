@@ -1,22 +1,25 @@
 package demo.model;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="user_info")
 public class UserInfo {
+	
 	@Id
-
 	private String userId;
 
 	private String userName;
 
 	private Integer sex;
 
-	private String birth;
+	private Date birth;
 
 	private String postCode;
 
@@ -60,11 +63,11 @@ public class UserInfo {
 		this.sex = sex;
 	}
 
-	public String getBirth() {
+	public Date getBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
+	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
 
