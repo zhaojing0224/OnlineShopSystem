@@ -4,34 +4,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import demo.model.UserLogInInfo;
 import demo.obj.UserInfoObj;
-import demo.repository.UserInfoRepository;
-import demo.repository.UserLogInInfoRepository;
+import demo.obj.UserLoginInfoObj;
 import demo.service.UserInfoService;
+import demo.service.UserLoginInfoService;
 
 @Controller
 public class AccountController {
 
+	@Autowired
+	private UserInfoService userInfoService;
+
+	@Autowired
+	private UserLoginInfoService userLoginInfoService;
+
 	/**
 	 * ユーザー登録画面を表示
-	 * @param logInPage
+	 * @param LoginPage
 	 * @return
 	 */
-	@GetMapping("/logInPage")
-	public String logIn(Model model) {
+	@GetMapping("/LoginPage")
+	public String Login(Model model) {
 
-		model.addAttribute("logInPage", "logInPage");
+		model.addAttribute("LoginPage", "LoginPage");
 
-		return "logInPage";
+		return "LoginPage";
 	}
 
 	/**
 	 * ユーザー新規登録画面を表示
-	 * @param logInPage
+	 * @param LoginPage
 	 * @return
 	 */
 	@GetMapping("/userRegisterPage")
@@ -47,16 +51,6 @@ public class AccountController {
 	 * @param myPage
 	 * @return
 	 */
-	@Autowired
-	private UserLogInInfoRepository userLogInInfoRepository;
-
-	@Autowired
-	private UserInfoRepository userInfoRepository;
-
-	@Autowired
-	private UserInfoService userInfoService;
-
-	@PostMapping("/userRegisterPage")
 	public String userRegister(@RequestParam("firstName") String firstName,
 			@RequestParam("lastName") String lastName,
 			@RequestParam("userId") String userId,
@@ -72,13 +66,13 @@ public class AccountController {
 
 		userInfoService.saveUserInfo(userInfoObj);
 
-		UserLogInInfo userLoginInfo = new UserLogInInfo();
-		userLoginInfo.setUserId(userId);
-		userLoginInfo.setPassword(password);
+		UserLoginInfoObj userLoginInfoObj = new UserLoginInfoObj();
+		userLoginInfoObj.setUserId(userId);
+		userLoginInfoObj.setPassword(password);
 
-		userLogInInfoRepository.save(userLoginInfo);
+		userLoginInfoService.saveUserLoginfoInfo(userLoginInfoObj);
 
-		return "myPage";
+		return "/loginPage";
 	}
 
 }

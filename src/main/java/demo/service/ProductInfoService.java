@@ -28,7 +28,7 @@ public class ProductInfoService {
 
 	/**
 	 * 商品情報を全件取得する
-	 * @return productInfoリスト
+	 * @return productInfoObjList
 	 */
 	public List<ProductInfoObj> findAllProductInfo() {
 		

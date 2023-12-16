@@ -1,5 +1,6 @@
 package demo.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,17 +18,14 @@ public class UserInfoService {
 	@Autowired
 	UserInfoRepository userInfoRepositroy;
 
-	@Autowired
-	public UserInfoService(UserInfoRepository userInfoRepositroy) {
-		this.userInfoRepositroy = userInfoRepositroy;
-	}
-
 	/**
 	 * ユーザー情報を更新する
 	 * @param userInfo
 	 * @return userInfo
 	 */
 	public UserInfo saveUserInfo(UserInfoObj userInfoObj) {
+
+		LocalDateTime currentTime = LocalDateTime.now();
 
 		UserInfo userInfo = new UserInfo();
 		userInfo.setUserId(userInfoObj.getUserId());
@@ -40,6 +38,8 @@ public class UserInfoService {
 		userInfo.setCyoumebanchi(userInfoObj.getCyoumebanchi());
 		userInfo.setRoomNumber(userInfoObj.getRoomNumber());
 		userInfo.setPhoneNumber(userInfoObj.getPhoneNumber());
+		userInfo.setCreateDate(currentTime);
+		userInfo.setUpdateDate(currentTime);
 
 		return userInfoRepositroy.save(userInfo);
 	}

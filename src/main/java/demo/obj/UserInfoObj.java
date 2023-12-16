@@ -1,7 +1,9 @@
 package demo.obj;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import lombok.Data;
 
 @Data
@@ -26,5 +28,11 @@ public class UserInfoObj {
 	private String roomNumber;
 
 	private String phoneNumber;
+
+	@Column(name = "create_date")
+	private LocalDateTime createDate;
+
+	@Column(name = "update_date")
+	private LocalDateTime updateDate;
 
 }
